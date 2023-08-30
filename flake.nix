@@ -1,5 +1,5 @@
 {
-  description = "Nix Security Toolkit flake";
+  description = "Rust Enveronment for ESP32";
 
   inputs = {
     # NixPkgs (nixos-22.11)
