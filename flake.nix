@@ -9,22 +9,20 @@
   };
 
   outputs = { self, flake-utils, ... }@inputs:
-    flake-utils.lib.eachDefaultSystem
-      (system:
-        let
-          overlays = with inputs; [
-            (self: super: { local = import ./buildtools { pkgs = super; }; })
-            rust-overlay.overlays.default
-          ];
-          pkgs = import inputs.nixpkgs {
-            inherit system overlays; config.allowUnfree = true;
-          };
-        in
-        with pkgs;
-        {
-          devShells = {
-            default = ./shell.nix { inherit pkgs; };
-          };
-        }
-      );
+    flake-utils.lib.eachSystem ["x86_64-linux" ] (system:
+      let
+        overlays = with inputs; [
+          (self: super: { local = import ./buildtools { pkgs = super; }; })
+          rust-overlay.overlays.default
+        ];
+        pkgs = import inputs.nixpkgs {
+          inherit system overlays; config.allowUnfree = true;
+        };
+      in
+      {
+        devShells = {
+          default = import ./shell.nix { inherit pkgs; };
+        };
+      }
+    );
 }
