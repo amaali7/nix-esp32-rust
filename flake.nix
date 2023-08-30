@@ -22,6 +22,7 @@
       {
         devShells = {
           default = import ./shell.nix { inherit pkgs; };
+          nightly = import ./nightly-shell.nix { inherit pkgs; };
         };
       }
     );
