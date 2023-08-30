@@ -1,6 +1,6 @@
 {pkgs, stdenv, ...}:pkgs.rustPlatform.buildRustPackage rec {
   pname = "espflash";
-  version = "v1.6.0";
+  version = "v2.0.1";
 
   nativeBuildInputs = [
 
@@ -19,7 +19,7 @@
     sha256 = "YQ621YbdEy2sS4uEYvgnQU1G9iW5SpWNObPH4BfyeF0=";
   };
 
-  cargoSha256 = "7pKLbsVOezsvTmjA3E6Oa9aHYR8w/mb8U4Dymdy4zRs=";
+  cargoSha256 = "sha256-WGZ725hrH+A3fajyzn4SEN8oGIshN2U/1KnFoukNZlk=";
 
   #meta = with stdenv.lib; {
     #description = "A fast line-oriented regex search tool, similar to ag and ack";
