@@ -5,7 +5,8 @@ stdenv.mkDerivation {
   buildInputs = [
     (rust-bin.selectLatestNightlyWith (toolchain: toolchain.default.override {
       extensions = [ "rust-src" "llvm-tools-preview" ];
-      targets = [ "riscv32imc-unknown-none-elf" ];
+      #targets = [ "riscv32imc-unknown-none-elf" "xtensa-esp32-none-elf" "xtensa-esp32-espidf" ];
+      targets = [ "xtensa-esp32-none-elf" "xtensa-esp32-espidf" ];
     }))
 
     # Add some extra dependencies from `pkgs`
